@@ -20,10 +20,24 @@ class TasksController < ApplicationController
 		end
 	end
 
+	def edit
+		@task = Task.find(params[:id])
+		redirect_to tasks_path
+	end
+
+	def update
+		@task = Task.find(params[:id])
+		if @task.update_attributes(params[:id])
+			redirect_to tasks_path
+		else
+			flash[:notice] = 'Update failed'
+		end
+	end	
+
 	def destroy
 		@task = Task.find(params[:id])
 		if @task.destroy
-			redirect_to task_path
+			redirect_to tasks_path
 		else
 			flash[:notice] = 'Task deleted failed'
 		end

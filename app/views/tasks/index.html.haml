@@ -5,10 +5,6 @@
   .row
     .large-6.column.large-centered
       .form
-        = form_for @new_task do |task|
-          %label Task name
-          = task.text_field :name, autofocus: true, placeholder: 'Put your task here'
-          %p
-          = task.submit 'Add task', class: 'default button'
+        = render partial: 'search'
 
 = render partial: 'to_do'

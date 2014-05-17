@@ -1,7 +1,8 @@
 .row
-	.large-6.columns.large-centered
+  .large-6.columns.large-centered
 %p List of Tasks
 - @tasks.each do |task|
-  = task.name
+  = task.name  |  
+  = button_to "Delete", task_path(task), confirm: "Delete?", method: :delete, class: 'button'
   %br
   %br
