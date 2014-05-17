@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
 	def update
 		@task = Task.find(params[:id])
-		if @task.update_attributes(params[:id])
+		if @task.update_attributes(task_params)
 			redirect_to tasks_path
 		else
 			flash[:notice] = 'Update failed'
