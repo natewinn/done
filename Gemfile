@@ -12,6 +12,7 @@ gem 'jquery-turbolinks'
 gem 'jbuilder'
 gem 'devise'
 gem 'carrierwave'
+gem 'bootstrap-editable-rails'
 
 group :doc do
 	gem 'sdoc'

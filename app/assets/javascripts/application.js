@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require foundation.min
+//= require custom
+//= require bootstrap
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require rails
 //= require turbolinks
 //= require_tree .

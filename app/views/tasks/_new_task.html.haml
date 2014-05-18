@@ -1,5 +1,7 @@
 = form_for(@new_task, :remote => true) do |task|
   %label Task name
   = task.text_field :name, autofocus: true, placeholder: 'Put your task here'
-  %p
-  = task.submit 'Add task', class: 'default button'
+  .modal-hide
+    = task.submit 'Add task', class: 'default button'
+  .modal-hide.button
+    Cancel         

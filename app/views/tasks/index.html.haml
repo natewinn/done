@@ -1,15 +1,26 @@
 /* Navigation Bar */
 = render partial: 'layouts/nav_bar'
 
+%a.modal-reveal
+  Add a Task
+
 /* Add a New Task */
-.top-section
-  .row
-    .large-6.column.large-centered
-      .form
-        #task_form= render partial: 'new_task'
+/ .top-section
+/   .row
+/     .large-6.column.large-centered
+/       .form
+/         #task_form= render partial: 'new_task'
 
 /* To-Dos */
 .top-section
   .row
     .large-6.column.large-centered
       #task_list= render partial: 'to_do'
+
+
+#bottom.modal-background
+  .row
+    .large-6.columns.large-centered
+      #top.upload-panel
+        .small-11.columns.small-centered
+          #task_form= render partial: 'new_task'           
