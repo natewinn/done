@@ -1,10 +1,16 @@
+/* Navigation Bar */
 = render partial: 'layouts/nav_bar'
 
-/* Add Task Form */
+/* Add a New Task */
 .top-section
   .row
     .large-6.column.large-centered
       .form
         = render partial: 'search'
 
-= render partial: 'to_do'
+/* To-Dos */
+.top-section
+  .row
+    .large-6.column.large-centered
+      #to_to
+      = render partial: 'to_do'

@@ -1,8 +1,12 @@
-.row
-  .large-6.columns.large-centered
-%p List of Tasks
-- @tasks.each do |task|
-  = task.name  |  
-  = button_to "Delete", task_path(task), confirm: "Delete?", method: :delete, class: 'button'
-  %br
-  %br
+%table
+  %thead
+    %tr
+      %th Trash
+      %th Task name
+      %th Done
+  %tbody
+    - @tasks.each do |task|
+      %tr
+        %td= button_to 'Delete', task_path(task), method: :delete, class: 'button'
+        %td= task.name
+        %td= check_box_tag 'receive_email', 'yes', false
