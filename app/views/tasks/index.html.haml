@@ -6,11 +6,10 @@
   .row
     .large-6.column.large-centered
       .form
-        = render partial: 'search'
+        #task_form= render partial: 'new_task'
 
 /* To-Dos */
 .top-section
   .row
     .large-6.column.large-centered
-      #to_to
-      = render partial: 'to_do'
+      #task_list= render partial: 'to_do'

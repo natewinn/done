@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
 	# before_filter :authenticate_user!, :load
 
-	before_filter :load
+	before_filter :this_is_trash
 
-	def load
+	def this_is_trash
 		@tasks = Task.all
 		@new_task = Task.new
 	end
@@ -14,39 +14,32 @@ class TasksController < ApplicationController
 	def create
 		@new_task = Task.new(task_params)
 		if @new_task.save
-			redirect_to tasks_path
-		else
-			flash[:notice] = 'Task load failed'
+			@tasks = Task.all
 		end
 	end
 
 	def edit
 		@task = Task.find(params[:id])
-		redirect_to tasks_path
 	end
 
 	def update
 		@task = Task.find(params[:id])
 		if @task.update_attributes(task_params)
-			redirect_to tasks_path
-		else
-			flash[:notice] = 'Update failed'
+			@tasks = Task.all
 		end
 	end	
 
 	def destroy
 		@task = Task.find(params[:id])
 		if @task.destroy
-			redirect_to tasks_path
-		else
-			flash[:notice] = 'Task deleted failed'
+			@tasks = Task.all
 		end
 	end	
 
 	private
 
 	def task_params
-		params.require(:task).permit(:name)
+		params.require(:task).permit(:name, :complete)
 	end
 
 end
