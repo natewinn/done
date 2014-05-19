@@ -10,13 +10,7 @@ $(function(){
 	$('#top').hide();
 	});
 
-	// $("#task-check").bind('change', function(){
-	// 	if (this.checked){
-	// 		$.ajax({
-	// 			url: '/tasks/'+this.value+'/toggle',
-	// 			type: 'POST',
-	// 			data: '{"complete": this.check}
-	// 		});
-	// 	}
-	// });
+	$('#task_check').on('click', function() {
+  alert('clicked');
+	});
 });
