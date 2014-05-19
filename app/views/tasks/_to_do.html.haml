@@ -9,4 +9,4 @@
       %tr
         %td= button_to 'Delete', task, remote: 'true', method: 'delete', class: 'button'
         %td= task.name
-        %td#task-check= check_box_tag 'complete', false, task.complete
+        %td= check_box_tag 'complete', '1', task.complete, data: { 'task-id' => task.id }

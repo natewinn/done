@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  # before_filter :authenticate_user!, :load
+  # before_filter :authenticate_user!
 
-  before_filter :this_is_trash
+  before_filter :load
 
-  def this_is_trash
+  def load
     @tasks = Task.all
     @new_task = Task.new
   end
@@ -25,7 +25,10 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update_attributes(task_params)
-      @tasks = Task.all
+    respond_to do |format|
+      format.js
+      format.html { redirect_to tasks_path }
+    end
   end 
 
   def destroy
@@ -34,11 +37,6 @@ class TasksController < ApplicationController
       @tasks = Task.all
     end
   end
-
-  def toggle
-  	@task = Task.find(params[:id])
-		@task.update_attributes(:complete => params[:complete])
-	end
 	
   private
 

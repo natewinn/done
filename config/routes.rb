@@ -3,10 +3,6 @@ Rails.application.routes.draw do
 
   root to: 'tasks#index'
 
-  resources :tasks do
-  	member do
-  		post :toggle
-  	end
-  end
+  resources :tasks 
   	
 end

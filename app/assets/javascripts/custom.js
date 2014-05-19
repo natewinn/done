@@ -1,16 +1,40 @@
 $(function(){
 
 	$('.modal-reveal').on('click', function () {
-	$('#bottom').show();
-	$('#top').show();
+	
+	$('#bottom').show( 'slow' );
+	
+	$('#top').show( 'slow' );
+	
 	});
 
 	$('.modal-hide').on('click', function () {
-	$('#bottom').hide();
-	$('#top').hide();
+	
+	$('#bottom').hide( 'slow' );
+	
+	$('#top').hide( 'slow' );
+	
 	});
 
-	$('#task_check').on('click', function() {
-  alert('clicked');
+	$(':checkbox').on('click', function(){
+
+		var row = $(this).parents('tr'),
+			task_id = $(this).attr('data-task-id');
+
+		// $(row).hide( "slow" );
+
+		$.ajax({
+
+				url: "/tasks/" + task_id,
+				type: 'PUT',
+				data: {
+					task: {
+						"complete": true
+					}
+				}
+
+		});				
+
 	});
+
 });

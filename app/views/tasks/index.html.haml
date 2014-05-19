@@ -1,19 +1,10 @@
-/* Navigation Bar */
-= render partial: 'layouts/nav_bar'
-
 /* Task List */
 .top-section
-  .row
-    .large-6.column.large-centered
-      #task_list= render partial: 'to_do'
+  #task_list= render partial: 'to_do'
 
 /* New Task Modal */
 #bottom.modal-background
-  .row
-    .large-6.columns.large-centered
-      #top.upload-panel
-        .small-11.columns.small-centered
-          #task_form= render partial: 'new_task'  
+  #task_form= render partial: 'new_task'  
 
-%a.modal-reveal
+.btn.btn-default.modal-reveal
   Add a Task
