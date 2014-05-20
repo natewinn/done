@@ -49,7 +49,7 @@ $(function(){
   });
 
   // Delete Existing Task //
-  $('#task-body').on('click', function() {
+  $('#document').on('click', '.delete-survey', function(event) {
 
     var row = $(this);
     task_id = $(this).attr('data-task-id');
