@@ -3,8 +3,12 @@
   #task_list= render partial: 'to_do'
 
 /* New Task Modal */
-#bottom.modal-background
+#bottom-new.modal-background
   #task_form= render partial: 'new_task'  
 
-.btn.btn-default.modal-reveal
+/* Update Task Modal */
+#bottom-upate.modal-background
+  #task_form= render partial: 'update_task'  
+
+.btn.btn-default.reveal-new
   Add a Task

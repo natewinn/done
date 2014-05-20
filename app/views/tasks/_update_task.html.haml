@@ -1,0 +1,7 @@
+= form_for(@task, :remote => true) do |task|
+  %label Task name
+  = task.text_field :name, autofocus: true
+  .hide-update
+    = task.submit 'Update', class: 'btn btn-default'
+  .hide-update.btn.btn-default
+    Cancel
