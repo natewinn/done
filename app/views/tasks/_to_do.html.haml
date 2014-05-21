@@ -7,6 +7,7 @@
   %tbody#task-body
     - @tasks.each do |task|
       %tr{id: task.id}
-        %td#deletion= button_to 'Delete', task, remote: 'true', method: 'delete', class: 'btn btn-danger'
+        %td.btn.btn-default{ :class => 'deletion', data: { 'task-id' => task.id }}
+          Delete
         %td= task.name
         %td= check_box_tag 'complete', '0', task.complete, data: { 'task-id' => task.id }

@@ -1,7 +1,4 @@
-node :name do |task|
-	@task.name
-end
+object @task
+attributes :name, :id
 
-node :id do |task|
-	@task.id
-end
+

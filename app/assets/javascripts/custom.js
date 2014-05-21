@@ -35,8 +35,10 @@ $(function(){
   // Add New Task //
   $('#new_task').on('ajax:complete', function(event, data, status, xhr) {
       var item = $.parseJSON(data.responseText),
-          name = item.name;
-       task_id = item.id;
+          task = item.task,
+          name = task.name;
+       task_id = task.id;
+       console.log(item);
   $('#task-body').append('<tr><td><a class="btn btn-danger" data-method="delete" href="/tasks/' + task_id + ' " rel="nofollow">Delete</a></td><td>' + name + '</td><td><input id="complete" type="checkbox" value="0"></td></tr>');
   });
 
@@ -49,23 +51,17 @@ $(function(){
   // });
 
   // Delete Existing Task //
-  $(document).ready(function() {
-  $('#load').hide();
-});
-
-
-  $('#deletion').click(function() {
-      
+  $('.deletion').on('click', function() {
     var row = $(this).parents('tr');
-    task_id = $(this).attr('data-task-id');
-    
+    var task_id = $(this).attr('data-task-id');
+
     $.ajax({
       url: '/tasks/' + task_id,
-      type: 'post',
-      dataType: 'json',
+      type: 'DELETE',
       data: {'_method':'delete'},
-       success: function(){
-        commentContainer.slideUp('slow', function() {$(this).remove();});
+      dataType: 'json',
+      success: function(data) {
+        $(row).remove();
       }
     });
   });

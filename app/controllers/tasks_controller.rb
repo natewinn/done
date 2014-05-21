@@ -17,10 +17,10 @@ class TasksController < ApplicationController
       render @new_task
     else
       render nothing: true
-      # respond_to do |format|
-      #   format.js { render json: @new_task }
-      #   format.html { redirect_to tasks_path }
-      # end
+      respond_to do |format|
+        format.js { render json: @new_task }
+        format.html { redirect_to tasks_path }
+      end
     end
   end
 
@@ -44,8 +44,9 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     if @task.destroy
+      render @task
       # respond_to do |format|
-      #   format.js { render json: @task }
+      #   format.js { render @task }
       #   format.html { redirect_to tasks_path }
       # end
     end
