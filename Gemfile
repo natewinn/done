@@ -13,6 +13,8 @@ gem 'jbuilder'
 gem 'devise'
 gem 'carrierwave'
 gem 'bootstrap-editable-rails'
+gem 'rabl'
+gem 'oj'
 
 group :doc do
 	gem 'sdoc'

@@ -14,10 +14,13 @@ class TasksController < ApplicationController
   def create
     @new_task = Task.new(task_params)
     if @new_task.save
-      respond_to do |format|
-        format.js { render json: @new_task }
-        format.html { redirect_to tasks_path }
-      end
+      render @new_task
+    else
+      render nothing: true
+      # respond_to do |format|
+      #   format.js { render json: @new_task }
+      #   format.html { redirect_to tasks_path }
+      # end
     end
   end
 
@@ -27,20 +30,24 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update_attributes(task_params)
-    respond_to do |format|
-      format.js { render json: @task }
-      format.html { redirect_to tasks_path }
+    if @task.update_attributes(task_params)
+      render @task
+    else
+      render nothing: true
+    # respond_to do |format|
+    #   format.js { render json: @task }
+    #   format.html { redirect_to tasks_path }
+      # end
     end
   end 
 
   def destroy
     @task = Task.find(params[:id])
     if @task.destroy
-      respond_to do |format|
-        format.js { render json: @task }
-        format.html { redirect_to tasks_path }
-      end
+      # respond_to do |format|
+      #   format.js { render json: @task }
+      #   format.html { redirect_to tasks_path }
+      # end
     end
   end
 	
